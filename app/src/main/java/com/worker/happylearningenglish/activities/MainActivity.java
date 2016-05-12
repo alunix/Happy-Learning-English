@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 //    }
 
     public void startRecording(View v) {
-        startActivity(new Intent(this, VoiceRecordingActivity.class));
+//        startActivity(new Intent(this, VoiceRecordingActivity.class));
     }
 
     public void openAbout(MenuItem i) {
