@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+
+    <ImageView
+        android:id="@+id/rss_imgv"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/bbc_news"
+        android:layout_marginRight="12dp" />
+
+    <TextView
+        android:id="@+id/rss_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/rss_imgv"
+        android:layout_toEndOf="@+id/rss_imgv"
+        android:layout_toRightOf="@+id/rss_imgv"
+        android:text="Large Text"
+        android:textColor="@color/colorAccent"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/rss_desc_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rss_title_tv"
+        android:layout_toEndOf="@+id/rss_imgv"
+        android:layout_toRightOf="@+id/rss_imgv"
+        android:text="Medium Text"
+        android:textColor="@color/black"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/rss_date_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rss_desc_tv"
+        android:layout_toEndOf="@+id/rss_imgv"
+        android:layout_toRightOf="@+id/rss_imgv"
+        android:text="Small Text"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+</RelativeLayout>
