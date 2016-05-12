@@ -56,10 +56,10 @@ public class ReadingFragment extends android.support.v4.app.Fragment implements 
             rootView = inflater.inflate(R.layout.reading_fragment, container, false);
             listView = (ListView) rootView.findViewById(R.id.reading_lv);
             progressbar = (ProgressBar) rootView.findViewById(R.id.reading_progressbar);
-            init();
+//            init();
         }
         mode = MODE_PAGE;
-        processMode();
+//        processMode();
         return rootView;
     }
 

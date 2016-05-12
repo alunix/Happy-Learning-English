@@ -65,17 +65,7 @@ public class TestFragment extends Fragment implements OnBackPressedListener, Vie
     @Override
     public void onClick(View view) {
         int id = view.getId();
-        if (id == R.id.easy_lv_bt) {
-            switchToLevel(1);
-        } else if (id == R.id.medium_lv_bt) {
-            switchToLevel(2);
-        } else if (id == R.id.advance_lv_bt) {
-            switchToLevel(3);
-        } else if (id == R.id.check_result_bt) {
-            switchToResult();
-        } else if (id == R.id.turn_back_bt) {
-            switchScreen(SCREEN_MODE.TEST);
-        }
+
     }
 
     private void switchToResult() {
@@ -140,20 +130,7 @@ public class TestFragment extends Fragment implements OnBackPressedListener, Vie
                 levelScreen.setVisibility(View.VISIBLE);
                 sublevelScreen.setVisibility(View.GONE);
                 break;
-            case SUBLEVEL:
-                levelScreen.setVisibility(View.GONE);
-                sublevelScreen.setVisibility(View.VISIBLE);
-                testQuestionsScreen.setVisibility(View.GONE);
-                break;
-            case TEST:
-                sublevelScreen.setVisibility(View.GONE);
-                testQuestionsScreen.setVisibility(View.VISIBLE);
-                resultScreen.setVisibility(View.GONE);
-                break;
-            case RESULT:
-                testQuestionsScreen.setVisibility(View.GONE);
-                resultScreen.setVisibility(View.VISIBLE);
-                break;
+
         }
     }
 

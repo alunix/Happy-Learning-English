@@ -46,7 +46,7 @@ public class RecordingFragment extends android.support.v4.app.Fragment implement
     @Override
     public void onResume() {
         super.onResume();
-        refreshFileList();
+//        refreshFileList();
     }
 
     private void refreshFileList() {
