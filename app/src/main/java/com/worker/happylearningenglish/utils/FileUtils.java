@@ -1,15 +1,19 @@
 package com.worker.happylearningenglish.utils;
 
 import android.os.Environment;
-import android.widget.ArrayAdapter;
+import android.widget.Toast;
+
+import com.worker.happylearningenglish.R;
+import com.worker.happylearningenglish.activities.MainActivity;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by hataketsu on 4/14/16.
@@ -24,9 +28,9 @@ public class FileUtils {
         File file = new File(path);
         if (!file.exists())
             file.createNewFile();
-        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
-        outputStreamWriter.write(text);
-        outputStreamWriter.close();
+        FileWriter fileWriter = new FileWriter(file);
+        fileWriter.write(text);
+        fileWriter.close();
     }
 
     public static String readFromFile(String path) throws IOException {
@@ -42,14 +46,6 @@ public class FileUtils {
         return buffer.toString();
     }
 
-    public static void saveList(ArrayAdapter<String> arrayAdapter) throws IOException {
-        StringBuffer buffer = new StringBuffer();
-        for (int i = 0; i < arrayAdapter.getCount(); i++) {
-            buffer.append(arrayAdapter.getItem(i));
-            buffer.append("\n");
-        }
-        writeToFile(getPath() + "listen/sitelist.txt", buffer.toString());
-    }
 
     public static void deleteFolder(File file) {
         if (file.isDirectory()) {
@@ -57,5 +53,26 @@ public class FileUtils {
                 deleteFolder(i);
         }
         file.delete();
+    }
+
+    public static void error(Exception e) {
+        StringBuffer buf = new StringBuffer();
+        buf.append(e.getMessage()).append("\n");
+        buf.append(e.toString()).append("\n");
+        for (StackTraceElement i : e.getStackTrace()) {
+            buf.append(i.toString()).append("\n");
+        }
+        try {
+            String path = FileUtils.getPath() + "errorlog.txt";
+
+            FileUtils.writeToFile(path, readFromFile(path) + "\n\n\n" + getTime() + "\n\n" + buf.toString());
+        } catch (IOException e1) {
+            e1.printStackTrace();
+            Toast.makeText(MainActivity.getContext(), R.string.cannot_error, Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public static String getTime() {
+        return new SimpleDateFormat("MM'/'dd'/'y hh:mm:ss").format(new Date());
     }
 }
