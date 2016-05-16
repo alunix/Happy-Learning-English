@@ -17,6 +17,7 @@ import com.worker.happylearningenglish.R;
 import com.worker.happylearningenglish.test.QuestionEntry;
 import com.worker.happylearningenglish.test.SubLevelEntry;
 import com.worker.happylearningenglish.test.TestDatabase;
+import com.worker.happylearningenglish.utils.FileUtils;
 
 /**
  * Created by hataketsu on 5/6/16.
@@ -64,17 +65,21 @@ public class TestFragment extends Fragment implements OnBackPressedListener, Vie
 
     @Override
     public void onClick(View view) {
-        int id = view.getId();
-        if (id == R.id.easy_lv_bt) {
-            switchToLevel(1);
-        } else if (id == R.id.medium_lv_bt) {
-            switchToLevel(2);
-        } else if (id == R.id.advance_lv_bt) {
-            switchToLevel(3);
-        } else if (id == R.id.check_result_bt) {
-            switchToResult();
-        } else if (id == R.id.turn_back_bt) {
-            switchScreen(SCREEN_MODE.TEST);
+        try {
+            int id = view.getId();
+            if (id == R.id.easy_lv_bt) {
+                switchToLevel(1);
+            } else if (id == R.id.medium_lv_bt) {
+                switchToLevel(2);
+            } else if (id == R.id.advance_lv_bt) {
+                switchToLevel(3);
+            } else if (id == R.id.check_result_bt) {
+                switchToResult();
+            } else if (id == R.id.turn_back_bt) {
+                switchScreen(SCREEN_MODE.TEST);
+            }
+        } catch (Exception e) {
+            FileUtils.error(e);
         }
     }
 
@@ -117,7 +122,6 @@ public class TestFragment extends Fragment implements OnBackPressedListener, Vie
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 SubLevelEntry entry = (SubLevelEntry) adapterView.getItemAtPosition(position);
-                Toast.makeText(getContext(), entry.getDescription(), Toast.LENGTH_SHORT).show();
                 switchToTest(entry);
             }
         });

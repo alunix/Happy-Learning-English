@@ -64,16 +64,12 @@ public class RecordEntry {
         try {
             FileUtils.writeToFile(folder.getPath() + "/title.txt", title.toString());
             FileUtils.writeToFile(folder.getPath() + "/desc.txt", desc.toString());
-            FileUtils.writeToFile(folder.getPath() + "/date.txt", getTime());
+            FileUtils.writeToFile(folder.getPath() + "/date.txt", FileUtils.getTime());
             return true;
         } catch (IOException e) {
             e.printStackTrace();
             return false;
         }
-    }
-
-    private String getTime() {
-        return new SimpleDateFormat("MM'/'dd'/'y hh:mm:ss").format(new Date());
     }
 
     public CharSequence getDate() {

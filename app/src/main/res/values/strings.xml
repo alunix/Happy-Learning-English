@@ -37,4 +37,5 @@
     <string name="hold_delete">Giữ để xóa bản ghi</string>
     <string name="delete_record">Xóa bản ghi âm này?</string>
     <string name="delete">Xóa</string>
+    <string name="cannot_error">Không thể lưu thông báo lỗi</string>
 </resources>

@@ -4,24 +4,21 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.worker.happylearningenglish.fragment.FuntionAdapter;
 import com.worker.happylearningenglish.R;
+import com.worker.happylearningenglish.fragment.FuntionAdapter;
 import com.worker.happylearningenglish.fragment.OnBackPressedListener;
 import com.worker.happylearningenglish.test.TestDatabase;
 import com.worker.happylearningenglish.utils.FileUtils;
@@ -77,18 +74,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         }
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.main_menu, menu);
-//        return true;
-//    }
-
     public void startRecording(View v) {
         startActivity(new Intent(this, VoiceRecordingActivity.class));
-    }
-
-    public void openAbout(MenuItem i) {
-        Toast.makeText(this, "Nothing here", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -103,14 +90,14 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.confirm_exit);
         dialog.setTitle(R.string.confirm);
-        ((Button) dialog.findViewById(R.id.confirm_yes)).setOnClickListener(new OnClickListener() {
+        dialog.findViewById(R.id.confirm_yes).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 dialog.cancel();
                 finish();
             }
         });
-        ((Button) dialog.findViewById(R.id.confirm_no)).setOnClickListener(new OnClickListener() {
+        dialog.findViewById(R.id.confirm_no).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
